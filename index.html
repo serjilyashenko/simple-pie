@@ -10,42 +10,182 @@
 </head>
 <body>
 
-<svg viewBox="-10 -10 120 120">
-  <path d="M 0 50
-           Q 25 25 50 50
-           T 100 50
-           
-           A 50 50 0 0 1 0 50
-           "/>
-           
+<svg class="example" viewBox="-10 -10 120 120">
     <path d="M 0 50
            Q 25 25 50 50
            T 100 50
-           
+
+           A 50 50 0 0 1 0 50
+           "/>
+
+    <path d="M 0 50
+           Q 25 25 50 50
+           T 100 50
+
            A 50 50 0 0 0 0 50
            "/>
 </svg>
-    
-<svg viewBox="-10 -10 120 120">
-  <path d="M 50 50
+
+<svg class="example" viewBox="-10 -10 120 120">
+    <path d="M 50 50
            l 0 -50
            a 50 50 0 0 1 50 50
            Z
            "/>
-           
-  <path d="M 50 50
+
+    <path d="M 50 50
            l 50 0
            a 50 50 0 0 1 -50 50
            Z
            "/>
-           
- <path d="M 50 50
+
+    <path d="M 50 50
            l 0 50
            a 50 50 0 0 1 -50 -50
            Z
            "/>
- </svg>
+</svg>
+
+<svg class="example" viewBox="-10 -10 120 120">
+    <path d="M 50 50
+           l 0 -50
+           a 50 50 0
+           1 1
+           -1 0
+           Z
+           "/>
+</svg>
+
+<h4>Equals</h4>
+
+<div style="display: flex; flex-wrap: wrap">
+    <div id="target-container0" class="pie-chart"></div>
+    <div id="target-container1" class="pie-chart"></div>
+    <div id="target-container2" class="pie-chart"></div>
+    <div id="target-container3" class="pie-chart"></div>
+    <div id="target-container4" class="pie-chart"></div>
+    <div id="target-container5" class="pie-chart"></div>
+    <div id="target-container6" class="pie-chart"></div>
+</div>
+
+<h4>Test 1</h4>
+
+<div style="display: flex; flex-wrap: wrap">
+    <div id="target-container1_0" class="pie-chart"></div>
+    <div id="target-container1_1" class="pie-chart"></div>
+    <div id="target-container1_2" class="pie-chart"></div>
+    <div id="target-container1_3" class="pie-chart"></div>
+    <div id="target-container1_4" class="pie-chart"></div>
+    <div id="target-container1_5" class="pie-chart"></div>
+</div>
+
+<h4>Test 2</h4>
+
+<div style="display: flex; flex-wrap: wrap">
+    <div id="target-container2_0" class="pie-chart"></div>
+    <div id="target-container2_1" class="pie-chart"></div>
+    <div id="target-container2_2" class="pie-chart"></div>
+    <div id="target-container2_3" class="pie-chart"></div>
+    <div id="target-container2_4" class="pie-chart"></div>
+    <div id="target-container2_5" class="pie-chart"></div>
+</div>
+
+<h4>Test 3</h4>
+
+<div style="display: flex; flex-wrap: wrap">
+    <div id="target-container3_0" class="pie-chart"></div>
+    <div id="target-container3_1" class="pie-chart"></div>
+    <div id="target-container3_2" class="pie-chart"></div>
+    <div id="target-container3_3" class="pie-chart"></div>
+    <div id="target-container3_4" class="pie-chart"></div>
+    <div id="target-container3_5" class="pie-chart"></div>
+</div>
+
+<h4>Test 4</h4>
+
+<div style="display: flex; flex-wrap: wrap">
+    <div id="target-container4_0" class="pie-chart"></div>
+    <div id="target-container4_1" class="pie-chart"></div>
+    <div id="target-container4_2" class="pie-chart"></div>
+    <div id="target-container4_3" class="pie-chart"></div>
+    <div id="target-container4_4" class="pie-chart"></div>
+    <div id="target-container4_5" class="pie-chart"></div>
+</div>
+
+<h4>Test 5</h4>
+
+<div style="display: flex; flex-wrap: wrap">
+    <div id="target-container5_0" class="pie-chart"></div>
+    <div id="target-container5_1" class="pie-chart"></div>
+    <div id="target-container5_2" class="pie-chart"></div>
+    <div id="target-container5_3" class="pie-chart"></div>
+    <div id="target-container5_4" class="pie-chart"></div>
+    <div id="target-container5_5" class="pie-chart"></div>
+</div>
+
+<h4>Test 6</h4>
+
+<div style="display: flex; flex-wrap: wrap">
+    <div id="target-container6_0" class="pie-chart"></div>
+    <div id="target-container6_1" class="pie-chart"></div>
+    <div id="target-container6_2" class="pie-chart"></div>
+    <div id="target-container6_3" class="pie-chart"></div>
+    <div id="target-container6_4" class="pie-chart"></div>
+    <div id="target-container6_5" class="pie-chart"></div>
+</div>
 
 <script src="main.js"></script>
+<script>
+    new SVGPie('target-container0', ['red']);
+    new SVGPie('target-container1', ['red', 'blue']);
+    new SVGPie('target-container2', ['red', 'blue', 'green']);
+    new SVGPie('target-container3', ['red', 'blue', 'green', 'pink']);
+    new SVGPie('target-container4', ['red', 'blue', 'green', 'pink', 'yellow']);
+    new SVGPie('target-container5', ['red', 'blue', 'green', 'pink', 'yellow', 'grey']);
+    new SVGPie('target-container6', ['red', 'blue', 'green', 'pink', 'yellow', 'grey', 'black']);
+
+    new SVGPieTest('target-container1_0', 1, 2);
+    new SVGPieTest('target-container1_1', 1, 3);
+    new SVGPieTest('target-container1_2', 1, 4);
+    new SVGPieTest('target-container1_3', 1, 5);
+    new SVGPieTest('target-container1_4', 1, 6);
+    new SVGPieTest('target-container1_5', 1, 7);
+
+    new SVGPieTest('target-container2_0', 2, 2);
+    new SVGPieTest('target-container2_1', 2, 3);
+    new SVGPieTest('target-container2_2', 2, 4);
+    new SVGPieTest('target-container2_3', 2, 5);
+    new SVGPieTest('target-container2_4', 2, 6);
+    new SVGPieTest('target-container2_5', 2, 7);
+
+    new SVGPieTest('target-container3_0', 3, 2);
+    new SVGPieTest('target-container3_1', 3, 3);
+    new SVGPieTest('target-container3_2', 3, 4);
+    new SVGPieTest('target-container3_3', 3, 5);
+    new SVGPieTest('target-container3_4', 3, 6);
+    new SVGPieTest('target-container3_5', 3, 7);
+
+    new SVGPieTest('target-container4_0', 4, 2);
+    new SVGPieTest('target-container4_1', 4, 3);
+    new SVGPieTest('target-container4_2', 4, 4);
+    new SVGPieTest('target-container4_3', 4, 5);
+    new SVGPieTest('target-container4_4', 4, 6);
+    new SVGPieTest('target-container4_5', 4, 7);
+
+    new SVGPieTest('target-container5_0', 5, 2);
+    new SVGPieTest('target-container5_1', 5, 3);
+    new SVGPieTest('target-container5_2', 5, 4);
+    new SVGPieTest('target-container5_3', 5, 5);
+    new SVGPieTest('target-container5_4', 5, 6);
+    new SVGPieTest('target-container5_5', 5, 7);
+
+    new SVGPieTest('target-container6_0', 6, 2);
+    new SVGPieTest('target-container6_1', 6, 3);
+    new SVGPieTest('target-container6_2', 6, 4);
+    new SVGPieTest('target-container6_3', 6, 5);
+    new SVGPieTest('target-container6_4', 6, 6);
+    new SVGPieTest('target-container6_5', 6, 7);
+
+</script>
 </body>
 </html>
