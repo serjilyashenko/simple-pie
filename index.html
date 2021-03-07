@@ -10,6 +10,27 @@
 </head>
 <body>
 
+<h4>Generator</h4>
+
+<div style="display: flex;">
+    <div id="generator-container" class="generator-container">
+    </div>
+    <div>
+        <fieldset>
+            <legend>Generate your Svg Pie</legend>
+
+            <div>
+                <label for="sector-size">Sectors size:</label>
+                <input id="sector-size" type="number" value="7" min="1" max="50">
+            </div>
+
+            <a id="downloadLink" href="" download="diagram.svg">Download ↓</a>
+        </fieldset>
+    </div>
+</div>
+
+<h4>Equal sectors</h4>
+
 <svg class="example" viewBox="-10 -10 120 120">
     <path d="M 0 50
            Q 25 25 50 50
@@ -55,8 +76,6 @@
            Z
            "/>
 </svg>
-
-<h4>Equals</h4>
 
 <div style="display: flex; flex-wrap: wrap">
     <div id="target-container0" class="pie-chart"></div>
@@ -136,6 +155,32 @@
 
 <script src="main.js"></script>
 <script>
+    const pallet = [
+      "#69D2E7","#A7DBD8","#E0E4CC","#F38630","#FA6900", "#FE4365","#FC9D9A","#F9CDAD","#C8C8A9","#83AF9B",
+      "#ECD078","#D95B43","#C02942","#542437","#53777A", "#556270","#4ECDC4","#C7F464","#FF6B6B","#C44D58",
+      "#774F38","#E08E79","#F1D4AF","#ECE5CE","#C5E0DC", "#E8DDCB","#CDB380","#036564","#033649","#031634",
+      "#490A3D","#BD1550","#E97F02","#F8CA00","#8A9B0F", "#FF9900","#424242","#E9E9E9","#BCBCBC","#3299BB",
+      "#5D4157","#838689","#A8CABA","#CAD7B2","#EBE3AA", "#5E412F","#FCEBB6","#78C0A8","#F07818","#F0A830",
+    ];
+
+    function setDownloader(linkId, svgId) {
+      const svg = document.querySelector(`#${svgId} svg`);
+      const serializer = new XMLSerializer();
+      const source = serializer.serializeToString(svg);
+
+      document.getElementById(linkId).href = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(source);
+    }
+
+    new SVGPie('generator-container', pallet.slice(0, 7), 'transparent');
+    setDownloader('downloadLink', 'generator-container');
+
+    document.getElementById('sector-size').addEventListener('change', e => {
+      document.getElementById('generator-container').innerHTML = "";
+      new SVGPie('generator-container', pallet.slice(0, e.target.value), 'transparent');
+      setDownloader('downloadLink', 'generator-container');
+    });
+
+
     new SVGPie('target-container0', ['red']);
     new SVGPie('target-container1', ['red', 'blue']);
     new SVGPie('target-container2', ['red', 'blue', 'green']);

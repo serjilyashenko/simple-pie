@@ -8,7 +8,7 @@
     const y0 = radius - radius * Math.cos(radAngle0);
 
     let radAngle = radAngle0 + radAngleDiff;
-    radAngle = radAngle !== 2 * PI ? radAngle : radAngle - 0.01;
+    radAngle = radAngleDiff !== 2 * PI ? radAngle : radAngle - 0.01;
 
     const x = radius + radius * Math.sin(radAngle);
     const y = radius - radius * Math.cos(radAngle);
@@ -25,11 +25,10 @@
     `;
   }
 
-  function svgWrapperFactory(element) {
+  function svgWrapperFactory(element, borderColor = 'black') {
     return `
-        <svg viewBox="-10 -10 120 120">
-            <circle cx="50" cy="50" r="50"/>
-            <g stroke="white" stroke-width="2px" fill="transparent">
+        <svg viewBox="-10 -10 120 120" xmlns="http://www.w3.org/2000/svg">
+            <g stroke="${borderColor}" stroke-width="2px" fill="transparent">
                 ${element}
             </g>
         </svg>
@@ -37,7 +36,7 @@
   }
 
   class SVGPie {
-    constructor($id, colors) {
+    constructor($id, colors, borderColor = 'black') {
       const pieElement = document.createElement('div');
 
       pieElement.style.width = '100%';
@@ -50,7 +49,7 @@
         return svgSectorFactory(radAngle0, radAngle, color);
       });
 
-      pieElement.innerHTML = svgWrapperFactory(sectorElementList.join(''));
+      pieElement.innerHTML = svgWrapperFactory(sectorElementList.join(''), borderColor);
 
       document.getElementById($id).appendChild(pieElement);
     }
@@ -66,7 +65,9 @@
       const radAngle0 = quarter0 * (PI / 4 - 0.1);
       const radAngleDiff = quarterDiff * (PI / 4 - 0.1);
 
-      pieElement.innerHTML = svgWrapperFactory(svgSectorFactory(radAngle0, radAngleDiff, 'blue'));
+      pieElement.innerHTML = svgWrapperFactory(
+        svgSectorFactory(radAngle0, radAngleDiff, 'blue') + '<circle cx="50" cy="50" r="50"/>'
+      );
 
       document.getElementById($id).appendChild(pieElement);
     }
