@@ -19,10 +19,17 @@
         <fieldset>
             <legend>Generate your Svg Pie</legend>
 
-            <div>
-                <label for="sector-size">Sectors size:</label>
-                <input id="sector-size" type="number" value="7" min="1" max="50">
-            </div>
+<!--            <div>-->
+<!--                <label for="sector-size">Sectors size:</label>-->
+<!--                <input id="sector-size" type="number" value="7" min="1" max="50">-->
+<!--            </div>-->
+
+            <form id="sectors-form">
+                <label for="sector-array">Sectors:</label>
+                <input type="text" id="sector-array" name="sectors[]" value="2,3,5,3"/>
+                <input type="submit">
+            </form>
+
 
             <a id="downloadLink" href="" download="diagram.svg">Download ↓</a>
         </fieldset>
@@ -155,13 +162,12 @@
 
 <script src="main.js"></script>
 <script>
-    const pallet = [
-      "#69D2E7","#A7DBD8","#E0E4CC","#F38630","#FA6900", "#FE4365","#FC9D9A","#F9CDAD","#C8C8A9","#83AF9B",
-      "#ECD078","#D95B43","#C02942","#542437","#53777A", "#556270","#4ECDC4","#C7F464","#FF6B6B","#C44D58",
-      "#774F38","#E08E79","#F1D4AF","#ECE5CE","#C5E0DC", "#E8DDCB","#CDB380","#036564","#033649","#031634",
-      "#490A3D","#BD1550","#E97F02","#F8CA00","#8A9B0F", "#FF9900","#424242","#E9E9E9","#BCBCBC","#3299BB",
-      "#5D4157","#838689","#A8CABA","#CAD7B2","#EBE3AA", "#5E412F","#FCEBB6","#78C0A8","#F07818","#F0A830",
-    ];
+    function getSectorsByForm(form) {
+      return form['sectors[]'].value.split(',').map(Number);
+    }
+
+    const sectorsForm = document.getElementById('sectors-form');
+    const values = getSectorsByForm(sectorsForm);
 
     function setDownloader(linkId, svgId) {
       const svg = document.querySelector(`#${svgId} svg`);
@@ -171,23 +177,27 @@
       document.getElementById(linkId).href = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(source);
     }
 
-    new SVGPie('generator-container', pallet.slice(0, 7), 'transparent');
+    new SVGPie('generator-container', values, undefined, 'transparent');
     setDownloader('downloadLink', 'generator-container');
 
-    document.getElementById('sector-size').addEventListener('change', e => {
+    sectorsForm.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const values = getSectorsByForm(e.target);
+
       document.getElementById('generator-container').innerHTML = "";
-      new SVGPie('generator-container', pallet.slice(0, e.target.value), 'transparent');
+      new SVGPie('generator-container', values, undefined, 'transparent');
       setDownloader('downloadLink', 'generator-container');
     });
 
 
-    new SVGPie('target-container0', ['red']);
-    new SVGPie('target-container1', ['red', 'blue']);
-    new SVGPie('target-container2', ['red', 'blue', 'green']);
-    new SVGPie('target-container3', ['red', 'blue', 'green', 'pink']);
-    new SVGPie('target-container4', ['red', 'blue', 'green', 'pink', 'yellow']);
-    new SVGPie('target-container5', ['red', 'blue', 'green', 'pink', 'yellow', 'grey']);
-    new SVGPie('target-container6', ['red', 'blue', 'green', 'pink', 'yellow', 'grey', 'black']);
+    new SVGPie('target-container0', null, ['red']);
+    new SVGPie('target-container1', null, ['red', 'blue']);
+    new SVGPie('target-container2', null, ['red', 'blue', 'green']);
+    new SVGPie('target-container3', null, ['red', 'blue', 'green', 'pink']);
+    new SVGPie('target-container4', null, ['red', 'blue', 'green', 'pink', 'yellow']);
+    new SVGPie('target-container5', null, ['red', 'blue', 'green', 'pink', 'yellow', 'grey']);
+    new SVGPie('target-container6', null, ['red', 'blue', 'green', 'pink', 'yellow', 'grey', 'black']);
 
     new SVGPieTest('target-container1_0', 1, 2);
     new SVGPieTest('target-container1_1', 1, 3);
