@@ -1,5 +1,5 @@
 {
-  "name": "svg-pie",
+  "name": "simple-pie",
   "version": "0.1.0",
   "description": "Super light weight svg pie diagram",
   "main": "index.js",

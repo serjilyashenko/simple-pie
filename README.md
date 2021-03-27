@@ -1,25 +1,25 @@
-# svg-pie
+# simple-pie
 
 Super light weight and super simple svg pie diagram
 
-demo: https://serjilyashenko.github.io/svg-pie/
+See the demo: https://serjilyashenko.github.io/svg-pie/
 
 ## Installation
 
 ```shell
-npm install svg-pie
+npm install simple-pie
 ```
 
 ### Use with ES5 import:
 ```js
-import SVGPie from 'svg-pie';
+import SVGPie from 'simple-pie';
 
 // will appear soon
 ```
 
 ### Use in NodeJs:
 ```js
-const SVGPie = require('svg-pie');
+const SVGPie = require('simple-pie');
 ```
 
 ### Use in a browser:
