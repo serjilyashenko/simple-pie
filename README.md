@@ -2,7 +2,7 @@
 
 Super light weight and super simple svg pie diagram
 
-See the demo: https://serjilyashenko.github.io/simple-pie/preview
+See the demo: https://serjilyashenko.github.io/simple-pie
 
 ## Installation
 
