@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SVG Pie</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h4>Generator</h4>
+
+<div style="display: flex;">
+    <div id="generator-container" class="generator-container">
+    </div>
+    <div>
+        <fieldset>
+            <legend>Generate your Svg Pie</legend>
+
+<!--            <div>-->
+<!--                <label for="sector-size">Sectors size:</label>-->
+<!--                <input id="sector-size" type="number" value="7" min="1" max="50">-->
+<!--            </div>-->
+
+            <form id="sectors-form">
+                <label for="sector-array">Sectors:</label>
+                <input type="text" id="sector-array" name="sectors[]" value="2,3,5,3"/>
+                <input type="submit">
+            </form>
+
+
+            <a id="downloadLink" href="" download="diagram.svg">Download ↓</a>
+        </fieldset>
+    </div>
+</div>
+
+<h4>Equal sectors</h4>
+
+<svg class="example" viewBox="-10 -10 120 120">
+    <path d="M 0 50
+           Q 25 25 50 50
+           T 100 50
+
+           A 50 50 0 0 1 0 50
+           "/>
+
+    <path d="M 0 50
+           Q 25 25 50 50
+           T 100 50
+
+           A 50 50 0 0 0 0 50
+           "/>
+</svg>
+
+<svg class="example" viewBox="-10 -10 120 120">
+    <path d="M 50 50
+           l 0 -50
+           a 50 50 0 0 1 50 50
+           Z
+           "/>
+
+    <path d="M 50 50
+           l 50 0
+           a 50 50 0 0 1 -50 50
+           Z
+           "/>
+
+    <path d="M 50 50
+           l 0 50
+           a 50 50 0 0 1 -50 -50
+           Z
+           "/>
+</svg>
+
+<svg class="example" viewBox="-10 -10 120 120">
+    <path d="M 50 50
+           l 0 -50
+           a 50 50 0
+           1 1
+           -1 0
+           Z
+           "/>
+</svg>
+
+<div style="display: flex; flex-wrap: wrap">
+    <div id="target-container0" class="pie-chart"></div>
+    <div id="target-container1" class="pie-chart"></div>
+    <div id="target-container2" class="pie-chart"></div>
+    <div id="target-container3" class="pie-chart"></div>
+    <div id="target-container4" class="pie-chart"></div>
+    <div id="target-container5" class="pie-chart"></div>
+    <div id="target-container6" class="pie-chart"></div>
+</div>
+
+<h4>Test 1</h4>
+
+<div style="display: flex; flex-wrap: wrap">
+    <div id="target-container1_0" class="pie-chart"></div>
+    <div id="target-container1_1" class="pie-chart"></div>
+    <div id="target-container1_2" class="pie-chart"></div>
+    <div id="target-container1_3" class="pie-chart"></div>
+    <div id="target-container1_4" class="pie-chart"></div>
+    <div id="target-container1_5" class="pie-chart"></div>
+</div>
+
+<h4>Test 2</h4>
+
+<div style="display: flex; flex-wrap: wrap">
+    <div id="target-container2_0" class="pie-chart"></div>
+    <div id="target-container2_1" class="pie-chart"></div>
+    <div id="target-container2_2" class="pie-chart"></div>
+    <div id="target-container2_3" class="pie-chart"></div>
+    <div id="target-container2_4" class="pie-chart"></div>
+    <div id="target-container2_5" class="pie-chart"></div>
+</div>
+
+<h4>Test 3</h4>
+
+<div style="display: flex; flex-wrap: wrap">
+    <div id="target-container3_0" class="pie-chart"></div>
+    <div id="target-container3_1" class="pie-chart"></div>
+    <div id="target-container3_2" class="pie-chart"></div>
+    <div id="target-container3_3" class="pie-chart"></div>
+    <div id="target-container3_4" class="pie-chart"></div>
+    <div id="target-container3_5" class="pie-chart"></div>
+</div>
+
+<h4>Test 4</h4>
+
+<div style="display: flex; flex-wrap: wrap">
+    <div id="target-container4_0" class="pie-chart"></div>
+    <div id="target-container4_1" class="pie-chart"></div>
+    <div id="target-container4_2" class="pie-chart"></div>
+    <div id="target-container4_3" class="pie-chart"></div>
+    <div id="target-container4_4" class="pie-chart"></div>
+    <div id="target-container4_5" class="pie-chart"></div>
+</div>
+
+<h4>Test 5</h4>
+
+<div style="display: flex; flex-wrap: wrap">
+    <div id="target-container5_0" class="pie-chart"></div>
+    <div id="target-container5_1" class="pie-chart"></div>
+    <div id="target-container5_2" class="pie-chart"></div>
+    <div id="target-container5_3" class="pie-chart"></div>
+    <div id="target-container5_4" class="pie-chart"></div>
+    <div id="target-container5_5" class="pie-chart"></div>
+</div>
+
+<h4>Test 6</h4>
+
+<div style="display: flex; flex-wrap: wrap">
+    <div id="target-container6_0" class="pie-chart"></div>
+    <div id="target-container6_1" class="pie-chart"></div>
+    <div id="target-container6_2" class="pie-chart"></div>
+    <div id="target-container6_3" class="pie-chart"></div>
+    <div id="target-container6_4" class="pie-chart"></div>
+    <div id="target-container6_5" class="pie-chart"></div>
+</div>
+
+<script src="../index.js"></script>
+<script>
+   function svgPieHelper($id, values, pallet) {
+      const svgElement = new SVGPie(values, pallet, 'transparent');
+      document.getElementById($id).appendChild(svgElement);
+    }
+
+    function svgPieTestHelper($id, values, pallet) {
+      const svgElement = new SVGPie.SVGPieTest(values, pallet, 'transparent');
+      document.getElementById($id).appendChild(svgElement);
+    }
+
+    function getSectorsByForm(form) {
+      return form['sectors[]'].value.split(',').map(Number);
+    }
+
+    const sectorsForm = document.getElementById('sectors-form');
+    const values = getSectorsByForm(sectorsForm);
+
+    function setDownloader(linkId, svgId) {
+      const svg = document.querySelector(`#${svgId} svg`);
+      const serializer = new XMLSerializer();
+      const source = serializer.serializeToString(svg);
+
+      document.getElementById(linkId).href = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(source);
+    }
+
+    svgPieHelper('generator-container', values, undefined, 'transparent');
+
+    sectorsForm.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const values = getSectorsByForm(e.target);
+
+      document.getElementById('generator-container').innerHTML = "";
+      svgPieHelper('generator-container', values, undefined, 'transparent');
+      setDownloader('downloadLink', 'generator-container');
+    });
+
+
+    svgPieHelper('target-container0', null, ['red']);
+    svgPieHelper('target-container1', null, ['red', 'blue']);
+    svgPieHelper('target-container2', null, ['red', 'blue', 'green']);
+    svgPieHelper('target-container3', null, ['red', 'blue', 'green', 'pink']);
+    svgPieHelper('target-container4', null, ['red', 'blue', 'green', 'pink', 'yellow']);
+    svgPieHelper('target-container5', null, ['red', 'blue', 'green', 'pink', 'yellow', 'grey']);
+    svgPieHelper('target-container6', null, ['red', 'blue', 'green', 'pink', 'yellow', 'grey', 'black']);
+
+    svgPieTestHelper('target-container1_0', 1, 2);
+    svgPieTestHelper('target-container1_1', 1, 3);
+    svgPieTestHelper('target-container1_2', 1, 4);
+    svgPieTestHelper('target-container1_3', 1, 5);
+    svgPieTestHelper('target-container1_4', 1, 6);
+    svgPieTestHelper('target-container1_5', 1, 7);
+
+    svgPieTestHelper('target-container2_0', 2, 2);
+    svgPieTestHelper('target-container2_1', 2, 3);
+    svgPieTestHelper('target-container2_2', 2, 4);
+    svgPieTestHelper('target-container2_3', 2, 5);
+    svgPieTestHelper('target-container2_4', 2, 6);
+    svgPieTestHelper('target-container2_5', 2, 7);
+
+    svgPieTestHelper('target-container3_0', 3, 2);
+    svgPieTestHelper('target-container3_1', 3, 3);
+    svgPieTestHelper('target-container3_2', 3, 4);
+    svgPieTestHelper('target-container3_3', 3, 5);
+    svgPieTestHelper('target-container3_4', 3, 6);
+    svgPieTestHelper('target-container3_5', 3, 7);
+
+    svgPieTestHelper('target-container4_0', 4, 2);
+    svgPieTestHelper('target-container4_1', 4, 3);
+    svgPieTestHelper('target-container4_2', 4, 4);
+    svgPieTestHelper('target-container4_3', 4, 5);
+    svgPieTestHelper('target-container4_4', 4, 6);
+    svgPieTestHelper('target-container4_5', 4, 7);
+
+    svgPieTestHelper('target-container5_0', 5, 2);
+    svgPieTestHelper('target-container5_1', 5, 3);
+    svgPieTestHelper('target-container5_2', 5, 4);
+    svgPieTestHelper('target-container5_3', 5, 5);
+    svgPieTestHelper('target-container5_4', 5, 6);
+    svgPieTestHelper('target-container5_5', 5, 7);
+
+    svgPieTestHelper('target-container6_0', 6, 2);
+    svgPieTestHelper('target-container6_1', 6, 3);
+    svgPieTestHelper('target-container6_2', 6, 4);
+    svgPieTestHelper('target-container6_3', 6, 5);
+    svgPieTestHelper('target-container6_4', 6, 6);
+    svgPieTestHelper('target-container6_5', 6, 7);
+
+</script>
+</body>
+</html>
