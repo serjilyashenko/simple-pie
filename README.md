@@ -2,7 +2,7 @@
 
 Super light weight and super simple svg pie diagram
 
-See the demo: https://serjilyashenko.github.io/svg-pie/
+See the demo: https://serjilyashenko.github.io/simple-pie/
 
 ## Installation
 
@@ -26,9 +26,9 @@ const SVGPie = require('simple-pie');
 ```html
 <div id="container"></div>
 
-<script src="node_modules/svg-pie/index.js"></script>
+<script src="node_modules/simple-pie/index.js"></script>
 <script>
     const svgElement = new  SVGPie([2, 1, 1, 2]);
-    document.getElementById('target-container0').appendChild(svgElement);
+    document.getElementById('container').appendChild(svgElement);
 </script>
 ```
