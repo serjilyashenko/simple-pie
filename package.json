@@ -1,0 +1,25 @@
+{
+  "name": "svg-pie",
+  "version": "0.0.1",
+  "description": "Super light weight svg pie diagram",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serjilyashenko/svg-pie.git"
+  },
+  "keywords": [
+    "pie",
+    "svg",
+    "diagram",
+    "chart"
+  ],
+  "author": "Serge Ilyashenko <serj.ilyashenko@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/serjilyashenko/svg-pie/issues"
+  },
+  "homepage": "https://github.com/serjilyashenko/svg-pie#readme"
+}

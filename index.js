@@ -1,5 +1,4 @@
 ;(function () {
-
   const PI = Math.PI;
   const radius = 50;
 
@@ -43,8 +42,26 @@
   `;
   }
 
+  class SVGPieTest {
+    constructor(quarter0, quarterDiff) {
+      const pieElement = document.createElement('div');
+
+      pieElement.style.width = '100%';
+      pieElement.style.height = '100%';
+
+      const radAngle0 = quarter0 * (PI / 4 - 0.1);
+      const radAngleDiff = quarterDiff * (PI / 4 - 0.1);
+
+      pieElement.innerHTML = svgWrapperFactory(
+        svgSectorFactory(radAngle0, radAngleDiff, 'blue') + '<circle cx="50" cy="50" r="50"/>'
+      );
+
+      return pieElement;
+    }
+  }
+
   class SVGPie {
-    constructor($id, values, pallet = defaultPallet, borderColor = 'black') {
+    constructor(values, pallet = defaultPallet, borderColor = 'black') {
       const pieElement = document.createElement('div');
 
       pieElement.style.width = '100%';
@@ -68,29 +85,20 @@
 
       pieElement.innerHTML = svgWrapperFactory(sectorElementList.join(''), borderColor);
 
-      document.getElementById($id).appendChild(pieElement);
+      return pieElement;
     }
+
+    static SVGPieTest = SVGPieTest;
   }
 
-  class SVGPieTest {
-    constructor($id, quarter0, quarterDiff) {
-      const pieElement = document.createElement('div');
+  const isNode = typeof global === 'object' && global && global.Object === Object;
+  const isBrowser = typeof self === 'object' && self && self.Object === Object;
 
-      pieElement.style.width = '100%';
-      pieElement.style.height = '100%';
+  if (isNode) {
+    module.exports = SVGPie;
+  } else if (isBrowser) {
+    self.SVGPie = SVGPie;
+  } else {
 
-      const radAngle0 = quarter0 * (PI / 4 - 0.1);
-      const radAngleDiff = quarterDiff * (PI / 4 - 0.1);
-
-      pieElement.innerHTML = svgWrapperFactory(
-        svgSectorFactory(radAngle0, radAngleDiff, 'blue') + '<circle cx="50" cy="50" r="50"/>'
-      );
-
-      document.getElementById($id).appendChild(pieElement);
-    }
   }
-
-  window.SVGPie = SVGPie;
-  window.SVGPieTest = SVGPieTest;
-
-}());
+}.call(this));
