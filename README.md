@@ -1,5 +1,7 @@
 # simple-pie
 
+## ❌ This repo is not actual please checkout https://serjilyashenko.github.io/react-simple-pie
+
 Super light weight and super simple svg pie diagram
 
 See the demo: https://serjilyashenko.github.io/simple-pie
